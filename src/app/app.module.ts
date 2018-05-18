@@ -15,17 +15,18 @@ import { EventsService } from './events.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UpdateComponent } from './update/update.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/events',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
-    path: 'events',
-    component: EventsComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'special',
@@ -53,7 +54,8 @@ const routes: Routes = [
     LoginComponent,
     EventsComponent,
     SpecialEventsComponent,
-    UpdateComponent
+    UpdateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

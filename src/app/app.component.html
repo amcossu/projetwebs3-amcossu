@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/special" routerLinkActive="active">Mes candidatures</a>
+        <a class="nav-link" routerLink="/jobs" *ngIf="_authService.loggedIn()" routerLinkActive="active">Mes candidatures</a>
       </li>
     </ul>
     <ul class="navbar-nav">
@@ -18,6 +18,10 @@
     </ul>
   </div>
 </nav>    
+
 <div class="container">
   <router-outlet></router-outlet>            
 </div>
+<div class="text-center" id="footer">
+    <footer class="card-header bg-light text-dark">2018 | Dévelopée par Amanda Cossu</footer>
+  </div>

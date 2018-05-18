@@ -12,10 +12,12 @@ import { EventsComponent } from './events/events.component';
 import { SpecialEventsComponent } from './special-events/special-events.component';
 import { AuthService } from './auth.service';
 import { EventsService } from './events.service';
+import { JobsService } from './jobs.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UpdateComponent } from './update/update.component';
 import { HomeComponent } from './home/home.component';
+import { JobComponent } from './job/job.component';
 
 
 const routes: Routes = [
@@ -29,8 +31,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'special',
-    component: SpecialEventsComponent,
+    path: 'jobs',
+    component: JobComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -52,10 +54,9 @@ const routes: Routes = [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    EventsComponent,
-    SpecialEventsComponent,
     UpdateComponent,
-    HomeComponent
+    HomeComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +67,7 @@ const routes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [AuthService, EventsService, AuthGuard,
+  providers: [AuthService, AuthGuard, JobsService,
     {
      provide: HTTP_INTERCEPTORS,
      useClass: TokenInterceptorService,

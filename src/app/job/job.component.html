@@ -1,0 +1,15 @@
+<div class="row mt-5">
+    <div class="col-md-4 mb-3" *ngFor="let job of jobs">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{jobs.job}}</h5>
+          <p class="card-text">{{jobs.company}}</p>
+          <a href="#" class="btn btn-success">Montrer détails</a>
+        </div>
+        <div class="card-footer text-muted">
+          {{jobs.date | date:'shortDate'}}
+        </div>
+      </div>
+    </div>
+  </div>
+  

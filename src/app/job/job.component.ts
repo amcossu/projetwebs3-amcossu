@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobsService } from '../jobs.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-job',
@@ -10,21 +11,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class JobComponent implements OnInit {
 
-  jobs = [];
-  constructor(private _jobsService: JobsService, private _router: Router) { }
+  candidatures = [] ;
+  constructor(private _jobsService: JobsService, private _router: Router, private http: HttpClient) { }
 
   ngOnInit() {
-    this._jobsService.getJobs()
-    .subscribe (
-      res => this._jobsService = res,
-      err => {
-        if (err instanceof  HttpErrorResponse) {
-          if (err.status === 401) {
-            this._router.navigate(['/login']);
-          }
-        }
-      }
-    );
+   this._jobsService.getCandidatures()
+   .subscribe(
+     res => this.candidatures = res,
+     err => console.log(err)
+   );
   }
 
 }

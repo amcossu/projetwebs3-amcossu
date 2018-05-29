@@ -2,6 +2,7 @@ const express = require ('express');
 const jwt = require ('jsonwebtoken');
 const router = express.Router();
 const User = require('../models/user');
+const Candidature = require('../models/candidature');
 const mongoose = require('mongoose');
 const db = "mongodb://admin:21035363@ds111370.mlab.com:11370/tutodb"
 
@@ -46,6 +47,55 @@ router.post('/register', (req,res) =>{
     })
 })
 
+/* SAVE CANDIDATURE */
+router.post('/candidature', (req,res) =>{
+    let candidatureData = req.body;
+    let candidature = new Candidature(candidatureData);
+    candidature.save((error, registeredCandidature) => {
+        if (error){
+            console.log(error)
+        }else{
+            console.log(candidature);
+            res.status(200).send(registeredCandidature);
+        }
+    })
+})
+
+/* GET ALL CANDIDATURES */
+router.get('/candidature', verifyToken, function(req, res) {
+    Candidature.find(function (err, candidatures) {
+      if (err) return next(err);
+      console.log(candidatures);
+      res.json(candidatures);
+    });
+})
+
+/* GET SINGLE CANDIDATURE BY ID */
+router.get('/candidature/:id', function(req, res, next) {
+    Candidature.findById(req.params.id, function (err, candidature) {
+      if (err) return next(err);
+      res.json(candidature);
+    });
+});
+
+
+/* UPDATE CANDIDATURE */
+router.put('/candidature/:id', function(req, res, next) {
+    Candidature.findByIdAndUpdate(req.params.id, req.body, function (err, candidature) {
+      if (err) return next(err);
+      res.json(candidature);
+    });
+});
+
+/* DELETE CANDIDATURE */
+router.delete('/candidature/:id', function(req, res) {
+    Candidature.findByIdAndRemove(req.params.id, req.body, function (err, candidature) {
+      if (err) return (err);
+      res.json(candidature);
+    });
+});
+
+
 router.post('/login', (req,res) => {
     let userData = req.body
 
@@ -68,26 +118,5 @@ router.post('/login', (req,res) => {
     })
 })
 
-router.get('/jobs', verifyToken, (req,res) =>{
-    let jobs =[
-        {
-            "job": "Développeur web",
-            "company": "Passerelle Numérique",
-            "offer_description": "Développeur Angular",
-            "offer_code":"AERT",
-            "contact":"pass@num.com",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "job": "Développeur JS full-stack",
-            "company": "Jobs",
-            "offer_description": "Développeur JS et Node.js",
-            "offer_code":"RTU25",
-            "contact":"jobs@jobs.com",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-        ]
-   
-})
     
 module.exports = router;

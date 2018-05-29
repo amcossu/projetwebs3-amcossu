@@ -18,6 +18,9 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { UpdateComponent } from './update/update.component';
 import { HomeComponent } from './home/home.component';
 import { JobComponent } from './job/job.component';
+import { JobDetailsComponent } from './job-details/job-details.component';
+import { JobCreateComponent } from './job-create/job-create.component';
+import { JobEditComponent } from './job-edit/job-edit.component';
 
 
 const routes: Routes = [
@@ -31,9 +34,22 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'jobs',
+    path: 'candidatures',
     component: JobComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'candidature/:id',
+    component: JobDetailsComponent,
+  },
+  {
+    path: 'job-edit',
+    component: JobEditComponent,
+  },
+  {
+    path: 'job-create',
+    component: JobCreateComponent,
+
   },
   {
     path: 'login',
@@ -56,7 +72,10 @@ const routes: Routes = [
     LoginComponent,
     UpdateComponent,
     HomeComponent,
-    JobComponent
+    JobComponent,
+    JobDetailsComponent,
+    JobCreateComponent,
+    JobEditComponent
   ],
   imports: [
     BrowserModule,

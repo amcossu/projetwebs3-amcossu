@@ -11,24 +11,18 @@ import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 })
 export class JobDetailsComponent implements OnInit {
 
-  candidature: {};
+  candidature = {};
 
   constructor(private _jobsService: JobsService, private _router: Router,  private http: HttpClient,
   private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    const id = this._route.snapshot.params['id'];
+    this._jobsService.getCandidatureDetail(this._route.snapshot.params['id'])
+    .subscribe(
+      res => this.candidature = res,
+      err => console.log(err)
+    );
 
   }
 
-
-  deleteCandidature(id) {
-    this._jobsService.deleteCandidature(this.candidature)
-      .subscribe(res => {
-          this._router.navigate(['/candidatures']);
-        }, (err) => {
-          console.log(err);
-        }
-      );
-  }
 }

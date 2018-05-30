@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class JobsService {
 
   private _candidatureUrl = 'http://localhost:3000/api/candidature';
-  private _singleCandidatureUrl = 'http://localhost:3000/api/candidature:id';
+
 
 
   constructor(private http: HttpClient, private _router: Router ) { }
@@ -27,7 +27,8 @@ export class JobsService {
   }
 
   getCandidatureDetail(id) {
-    return this.http.get<any>(this._singleCandidatureUrl);
+    return this.http.get<any>(this._candidatureUrl + '/' + id);
+
   }
 
   deleteCandidature(id) {

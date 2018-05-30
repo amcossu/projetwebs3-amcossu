@@ -27,7 +27,6 @@ export class JobEditComponent implements OnInit {
       );
   }
 
-
   updateCandidature(id) {
     this._jobsService.updateCandidature(this.candidature, id)
       .subscribe(res => {

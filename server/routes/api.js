@@ -13,9 +13,7 @@ mongoose.connect(db, err => {
         console.log('Connected to mongodb')
     }
 })
-router.get('/', (req,res) => {
-    res.send('From API route');
-})
+
 
 function verifyToken(req, res, next) {
     if (!req.headers.authorization){
@@ -71,9 +69,8 @@ router.get('/candidature', verifyToken, function(req, res) {
 })
 
 /* GET SINGLE CANDIDATURE BY ID */
-router.get('/candidature/:id', function(req, res, next) {
+router.get('/candidature/:id', function(req, res) {
     Candidature.findById(req.params.id, function (err, candidature) {
-      if (err) return next(err);
       res.json(candidature);
     });
 });

@@ -7,7 +7,6 @@ projetwebs3-amcossu created by GitHub Classroom
 
 ### Prerequisites
 
-```
 
 ### Installing
 

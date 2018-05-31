@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          this._router.navigate(['/candidatures']);
+          localStorage.setItem('token', res.token);
+          this._router.navigate(['/users/' + res.token]);
         },
         err => console.log(err)
       );

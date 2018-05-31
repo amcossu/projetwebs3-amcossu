@@ -33,7 +33,7 @@ export class JobEditComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        this._router.navigate(['/users/' + res.token]);
+        this._router.navigate(['/candidature', candidature._id]);
       },
       err => console.log(err)
     );

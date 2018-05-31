@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class JobsService {
 
-  private _candidatureUrl = 'http://localhost:3000/api/candidature';
+  private _candidatureUrl = 'http://localhost:3000/api/candidatures';
 
 
 

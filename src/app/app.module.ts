@@ -34,7 +34,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'users/:id',
+    path: 'candidatures',
     component: JobComponent,
     canActivate: [AuthGuard]
   },

@@ -31,7 +31,7 @@ function verifyToken(req, res, next) {
     next()
 }
 
-router.post('/register', (req,res) =>{
+router.post('/users', (req,res) =>{
     let userData = req.body;
     let user = new User(userData);
     user.save((error, registeredUser) => {
@@ -44,6 +44,18 @@ router.post('/register', (req,res) =>{
         }
     })
 })
+
+router.delete('/users/', (req,res) =>{
+    User.findByIdAndRemove(req.params.id, req.body, function (err, user) {
+        if (err) {
+            console.log(err)
+          }else{
+            res.status(200)
+          }
+      });
+})
+
+
 
 /* SAVE CANDIDATURE */
 router.post('/candidature', (req,res) =>{
@@ -62,7 +74,7 @@ router.post('/candidature', (req,res) =>{
 /* GET ALL CANDIDATURES */
 router.get('/candidature', verifyToken, function(req, res) {
     Candidature.find(function (err, candidatures) {
-      if (err) return next(err);
+      if (err) return (err);
       console.log(candidatures);
       res.json(candidatures);
     });
@@ -75,25 +87,44 @@ router.get('/candidature/:id', function(req, res) {
     });
 });
 
+/* GET SINGLE USER BY ID */
+router.get('/register/:id', function(req, res) {
+    User.findById(req.params.id, function (err, user) {
+      res.json(user);
+    });
+});
 
 /* UPDATE CANDIDATURE */
-router.put('/candidature/:id', function(req, res, next) {
+router.put('/candidature/:id', function(req, res) {
     Candidature.findByIdAndUpdate(req.params.id, req.body, function (err, candidature) {
+      if (err) {
+        console.log(err)
+      }else{
+        res.json(candidature);
+      }
+    });
+});
+  
+/* DELETE CANDIDATURE */
+router.delete('/candidature/:id', function(req, res, next) {
+    Candidature.findByIdAndRemove(req.params.id, req.body, function (err, candidature) {
       if (err) return next(err);
       res.json(candidature);
     });
 });
 
-/* DELETE CANDIDATURE */
-router.delete('/candidature/:id', function(req, res) {
-    Candidature.findByIdAndRemove(req.params.id, req.body, function (err, candidature) {
-      if (err) return (err);
-      res.json(candidature);
+/* MODIFY USER */
+router.put('/:id', function(req, res, next) {
+    let userData = req.body
+
+    User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+      if (err) return next(err);
+      res.json(user);
     });
 });
 
 
-router.post('/login', (req,res) => {
+router.post('/users', (req,res) => {
     let userData = req.body
 
     User.findOne({email: userData.email}, (error, user) =>{

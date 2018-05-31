@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var CandidatureSchema = new mongoose.Schema({
+    userId: String,
     job: String,
     company: String,
     offer_description: String,

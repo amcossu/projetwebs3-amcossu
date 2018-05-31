@@ -25,4 +25,14 @@ export class JobDetailsComponent implements OnInit {
 
   }
 
+  deleteCandidature(id) {
+    this._jobsService.deleteCandidature(id)
+      .subscribe(res => {
+          localStorage.setItem('token', res.token);
+          this._router.navigate(['/users/' + res.token]);
+        }, (err) => {
+          console.log(err);
+        }
+      );
+  }
 }

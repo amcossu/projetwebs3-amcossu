@@ -10,31 +10,34 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class JobEditComponent implements OnInit {
 
-  candidature: any = {};
+  candidature = {
+    'id': ''
+  };
 
-  constructor(private _jobsService: JobsService, private _router: Router) { }
+
+  constructor(private _jobsService: JobsService, private _router: Router,
+              private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    this._jobsService.getCandidatureDetail(this._route.snapshot.params['id'])
+    .subscribe(
+      res => this.candidature = res,
+      err => console.log(err)
+    );
   }
 
-  deleteCandidature(id) {
-    this._jobsService.deleteCandidature(this.candidature)
-      .subscribe(res => {
-          this._router.navigate(['/candidatures']);
-        }, (err) => {
-          console.log(err);
-        }
-      );
+  modifyCandidature() {
+    const id = localStorage.getItem('token');
+    this.candidature.id = id;
+    this._jobsService.updateCandidature(this.candidature)
+    .subscribe(
+      res => {
+        console.log(res);
+        this._router.navigate(['/candidature', candidature._id]);
+      },
+      err => console.log(err)
+    );
   }
 
-  updateCandidature(id) {
-    this._jobsService.updateCandidature(this.candidature, id)
-      .subscribe(res => {
-          const _id = res['id'];
-          this._router.navigate(['/job-details', id]);
-        }, (err) => {
-          console.log(err);
-        }
-      );
-  }
+
 }

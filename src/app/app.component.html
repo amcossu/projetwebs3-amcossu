@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/candidatures" *ngIf="_authService.loggedIn()" routerLinkActive="active">Mes candidatures</a>
+        <a class="nav-link" routerLink='/candidature' *ngIf="_authService.loggedIn()" routerLinkActive="active">Mes candidatures</a>
       </li>
     </ul>
     <ul class="navbar-nav">
@@ -15,7 +15,7 @@
         <a class="nav-link"  *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
         <a class="nav-link"  *ngIf="_authService.loggedIn()" routerLink="/job-create" routerLinkActive="active">Ajouter une candidature</a>
         <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
-        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" routerLink="/update" routerLinkActive="active" >Modifier compte</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" routerLink="/update" routerLinkActive="active" >Profile</a>
     </ul>
   </div>
 </nav>    

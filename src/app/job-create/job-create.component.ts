@@ -23,7 +23,7 @@ export class JobCreateComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        this._router.navigate(['/candidatures']);
+        this._router.navigate(['/user' + '/']);
       },
       err => console.log(err)
     );

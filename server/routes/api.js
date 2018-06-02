@@ -31,7 +31,7 @@ function verifyToken(req, res, next) {
     next()
 }
 
-router.post('/register', (req,res) =>{
+router.post('/users', (req,res) =>{
     let userData = req.body;
     let user = new User(userData);
     user.save((error, registeredUser) => {
@@ -58,7 +58,7 @@ router.delete('/users/', (req,res) =>{
 
 
 /* SAVE CANDIDATURE */
-router.post('/candidatures', (req,res) =>{
+router.post('/candidature', (req,res) =>{
     let candidatureData = req.body;
     let candidature = new Candidature(candidatureData);
     candidature.save((error, registeredCandidature) => {
@@ -72,7 +72,7 @@ router.post('/candidatures', (req,res) =>{
 })
 
 /* GET ALL CANDIDATURES */
-router.get('/candidatures', verifyToken, function(req, res) {
+router.get('/candidature', verifyToken, function(req, res) {
     Candidature.find(function (err, candidatures) {
       if (err) return (err);
       console.log(candidatures);
@@ -124,7 +124,7 @@ router.put('/:id', function(req, res, next) {
 });
 
 
-router.post('/login', (req,res) => {
+router.post('/users', (req,res) => {
     let userData = req.body
 
     User.findOne({email: userData.email}, (error, user) =>{

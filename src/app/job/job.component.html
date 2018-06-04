@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="mt-5">Liste de candidatures</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Poste</th>
+          <th>Entreprise</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidature of candidatures">
+          <td>{{ candidature.job }}</td>
+          <td>{{ candidature.company }}</td>
+          <td><a [routerLink]="['/candidature', candidature._id]">Montrer détails</a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  

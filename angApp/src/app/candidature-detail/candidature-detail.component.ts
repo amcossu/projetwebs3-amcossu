@@ -10,17 +10,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class CandidatureDetailComponent implements OnInit {
 
-  candidature = {
-      _id : String,
-      job: String,
-      company: String,
-      offer_description: String,
-      offer_code: String,
-      contact: String,
-      date: Date,
-      userId: String,
-      __v: Number
-  };
+  candidature: any = {};
 
   constructor(private _candidatureService: CandidatureService, private _router: Router,
     private _route: ActivatedRoute, private _authService: AuthService) { }
@@ -29,16 +19,10 @@ export class CandidatureDetailComponent implements OnInit {
     this.candidature._id = this._route.snapshot.params['id'];
       this._candidatureService.getCandidatureDetail(this.candidature._id)
         .subscribe(
-          res => { this.candidature = res.json();
-          },
+          res =>  this.candidature = res,
           err => console.log(err)
         );
-      const userId = this.candidature.userId;
-      const currentUserId = this._authService.getToken();
-      console.log('userId', userId);
-      console.log('currentUserId', currentUserId);
   }
-
 
   deleteCandidature() {
     this._candidatureService.deleteCandidature(this.candidature)

@@ -33,7 +33,7 @@ const routes: Routes = [
     component: CandidatureComponent,
   },
   {
-    path: 'candidature',
+    path: 'candidature/:id',
     component: CandidatureDetailComponent,
   },
   {

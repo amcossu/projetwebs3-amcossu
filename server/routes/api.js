@@ -70,7 +70,7 @@ router.post('/candidatures', (req, res) => {
 })
 
 /* Show list of all candidatures */
-router.get('/candidatures', function (req, res) {
+router.get('/candidature', function (req, res) {
     let id = req.get('userId');
     Candidature.find({
         userId: id

@@ -10,7 +10,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class CandidatureService {
 
-  private _candidatureUrl = 'http://localhost:3000/api/candidatures';
+  private _candidatureUrl = 'http://localhost:3000/api/candidature';
   private _candidatureDetailUrl = 'http://localhost:3000/api/details';
 
 
@@ -44,7 +44,7 @@ export class CandidatureService {
     headers.append('candidatureId', candidatureId);
     const options = new RequestOptions();
     options.headers = headers;
-    return this._http.get(this._candidatureDetailUrl, options);
+    return this._http.get(this._candidatureUrl, options);
 
   }
 

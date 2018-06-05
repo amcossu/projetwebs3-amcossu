@@ -7,9 +7,9 @@ Mean Stack (Angular 5) application about job applications management.
 - Unzip the project
 
   - If you prefer to clone the project in your computer, open a console and write
-```
-git clone https://github.com/PassNum-Promo4/projetwebs3-amcossu.git
-```
+  ```
+    git clone https://github.com/PassNum-Promo4/projetwebs3-amcossu.git
+  ```
 -
 
 

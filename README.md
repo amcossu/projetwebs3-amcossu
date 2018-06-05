@@ -1,18 +1,17 @@
 # GestCan
-Angular 5 project created by GitHub Classroom 
-
-
-## Getting Started
-
-### Prerequisites
-You need to install Node.js and then the development tools. Node.js comes with a package manager called npm for installing NodeJS applications and libraries.
+Mean Stack (Angular 5) application about job applications management.
 
 ### Installing
+- Download the project at the 'Clone or download' tab.
 
+- Unzip the project
 
+-- If you prefer to clone the project in your computer, open a console and write
+```
+git clone https://github.com/PassNum-Promo4/projetwebs3-amcossu.git
+```
+-
 
-
-## Deployment
 
 
 ## Built With
@@ -27,7 +26,7 @@ You need to install Node.js and then the development tools. Node.js comes with a
 
 ## Versioning
 
-I had used [Git](http://github.com/) for versioning.
+[Git](http://github.com/)
 
 
 ## Authors

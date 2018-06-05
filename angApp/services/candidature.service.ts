@@ -44,7 +44,7 @@ export class CandidatureService {
     headers.append('candidatureId', candidatureId);
     const options = new RequestOptions();
     options.headers = headers;
-    return this._http.get(this._candidatureUrl, options);
+    return this._http.get(this._candidatureDetailUrl + '/' + candidatureId, options);
 
   }
 

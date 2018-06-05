@@ -19,9 +19,9 @@ export class CandidatureDetailComponent implements OnInit {
     this.candidature._id = this._route.snapshot.params['id'];
       this._candidatureService.getCandidatureDetail(this.candidature._id)
         .subscribe(
-          res =>  this.candidature = res,
-          err => console.log(err)
-        );
+          res => {
+            this.candidature = res;
+          });
   }
 
   deleteCandidature() {

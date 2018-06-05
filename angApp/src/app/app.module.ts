@@ -33,7 +33,7 @@ const routes: Routes = [
     component: CandidatureComponent,
   },
   {
-    path: 'candidature/:id',
+    path: 'details/:id',
     component: CandidatureDetailComponent,
   },
   {
@@ -50,7 +50,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'profil',
+    path: 'profile',
     component: ProfileComponent,
   },
   {

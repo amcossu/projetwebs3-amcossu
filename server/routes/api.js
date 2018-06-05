@@ -56,7 +56,7 @@ router.post('/login', (req, res) => {
 })
 
 /* Candidature registration */
-router.post('/candidatures', (req, res) => {
+router.post('/candidature', (req, res) => {
     let candidatureData = req.body;
     let candidature = new Candidature(candidatureData);
     candidature.save((error, registeredCandidature) => {
@@ -81,11 +81,11 @@ router.get('/candidature', function (req, res) {
     });
 })
 
-
 /* Show single candidature */
-router.get('/candidature/:id', function (req, res) {
-    Candidature.findById(req.params.id, function (err, candidature) {
-        res.json(candidature);
+router.get('/details', function (req, res) {
+    let id = req.get('candidatureId');
+    Candidature.findOne({_id: id}, function (err, candidature) {
+        res.status(200).send(candidature);
     });
 });
 

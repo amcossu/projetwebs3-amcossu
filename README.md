@@ -4,7 +4,7 @@ Mean Stack (Angular 5) application about job applications management.
 
 ### Installing
 
-- You need to install Node.js that comes with a package manager called npm for installing NodeJS applications and libraries. If you use Ubuntu 16.04 you can use :
+- You need to install Node.js that comes with a package manager called npm for installing NodeJS applications and libraries. If you have Ubuntu 16.04 you can use :
 
   ```
     $ sudo apt-get update

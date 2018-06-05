@@ -49,7 +49,7 @@ Mean Stack (Angular 5) application about job applications management.
 ```
     ng serve --open
 ```
-- You'll have your default browser that you'll open the application.
+- You'll have your default browser that will open the application.
 
 ## Built With
 

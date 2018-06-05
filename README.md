@@ -34,21 +34,21 @@ Mean Stack (Angular 5) application about job applications management (under cons
 
 - To install the dependencies also in the frontend application, from the root project folder, you'll need :
 
-```
+  ```
     cd angApp
     npm install
-```
+  ```
 - To run the server, go to the server directory and run :
 
-```
+  ```
     node server
-```
+  ```
 
 - To open the application, go to angApp directory and run :
 
-```
+  ```
     ng serve --open
-```
+  ```
 - You'll have your default browser that will open the application.
 
 ## Built With

@@ -1,6 +1,6 @@
 # GestCan
 
-Mean Stack (Angular 5) application about job applications management.
+Mean Stack (Angular 5) application about job applications management (under construction).
 
 ### Installing
 

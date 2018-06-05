@@ -20,11 +20,12 @@ export class CandidatureDetailComponent implements OnInit {
       this._candidatureService.getCandidatureDetail(this.candidature._id)
         .subscribe(
           res => {
-            this.candidature = res;
+            this.candidature = res.json();
+            console.log(res);
           });
   }
 
-  deleteCandidature() {
+  deleteCandidature(id) {
     this._candidatureService.deleteCandidature(this.candidature)
       .subscribe(res => {
           this._router.navigate(['/candidatures']);

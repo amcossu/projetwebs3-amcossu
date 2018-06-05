@@ -76,7 +76,6 @@ router.get('/candidature', function (req, res) {
         userId: id
     }, (err, candidatures) => {
         if (err) return (err);
-        console.log("test" + candidatures);
         res.json(candidatures);
     });
 })
@@ -84,7 +83,7 @@ router.get('/candidature', function (req, res) {
 /* Show single candidature */
 router.get('/details', function (req, res) {
     let id = req.get('candidatureId');
-    Candidature.findOne(req.params.id, (err, candidature) => {
+    Candidature.findOne({_id: id}, (err, candidature) => {
         if (err) return (err);
         console.log(candidature);
         res.json(candidature);

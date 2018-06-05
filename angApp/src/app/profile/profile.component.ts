@@ -9,6 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
+  loginUserData = {
+    email: '',
+    password: '',
+    _id: '',
+  };
+
   constructor(private _auth: AuthService, private _router: Router) { }
 
   ngOnInit() {

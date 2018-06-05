@@ -84,8 +84,10 @@ router.get('/candidature', function (req, res) {
 /* Show single candidature */
 router.get('/details', function (req, res) {
     let id = req.get('candidatureId');
-    Candidature.findOne({_id: id}, function (err, candidature) {
-        res.status(200).send(candidature);
+    Candidature.findOne(req.params.id, (err, candidature) => {
+        if (err) return (err);
+        console.log(candidature);
+        res.json(candidature);
     });
 });
 
@@ -100,11 +102,10 @@ router.put('/candidature/:id', function (req, res, next) {
 
 /* Delete candidature */
 router.delete('/candidature/:id', function (req, res) {
-    Candidature.findByIdAndRemove(req.params.id, req.body, function (err, candidature) {
+    Candidature.findByIdAndRemove(req.params.id,req.body, function (err, candidature) {
         if (err) return (err);
         res.json(candidature);
     });
 });
-
 
 module.exports = router;

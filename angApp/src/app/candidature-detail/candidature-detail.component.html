@@ -1,19 +1,27 @@
 <div class="container">
-  <h1>{{ candidature.job }}</h1>
-  <dl class="list">
-    <dt>Entreprise</dt>
-    <dd>{{ candidature.company }}</dd>
-    <dt>Description de l'offre</dt>
-    <dd>{{ candidature.offer_description }}</dd>
-    <dt>Contact</dt>
-    <dd>{{ candidature.contact }}</dd>
-    <dt>Date</dt>
-    <dd>{{ candidature.date | date:'short' }}</dd>
-  </dl>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <a [routerLink]="['/details/', candidature._id]" class="btn btn-success">Modifier</a>
-    <button class="btn btn-danger" type="button" (click)="deleteCandidature(candidature._id)">Effacer</button>
+  <div class="row col-12 d-flex justify-content-center">
+    <div class="col-12 col-md-8">
+      <h2 class="my-5">Détails de ma candidature</h2>
+      <h3>{{ candidature.job }}</h3>
+      <dl class="list">
+        <dt>Entreprise</dt>
+          <dd>{{ candidature.company }}</dd>
+        <dt>Description de l'offre</dt>
+          <dd>{{ candidature.offer_description }}</dd>
+          <dt>Code de l'offre</dt>
+          <dd>{{ candidature.offer_code }}</dd>
+        <dt>Contact</dt>
+          <dd>{{ candidature.contact }}</dd>
+        <dt>Date</dt>
+          <dd>{{ candidature.date | date:'short' }}</dd>
+      </dl>
+    </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-12 mt-5">
+    <a [routerLink]="['/details/', candidature._id]" class="btn btn-dark">Modifier</a>
+    <button class="btn btn-dark btn_delete" type="button" (click)="deleteCandidature()">Effacer</button>
+  </div>
+</div>
+

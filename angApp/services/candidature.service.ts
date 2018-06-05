@@ -44,17 +44,12 @@ export class CandidatureService {
     headers.append('candidatureId', candidatureId);
     const options = new RequestOptions();
     options.headers = headers;
-    return this._http.get(this._candidatureDetailUrl + '/' + candidatureId, options);
+    return this._http.get(this._candidatureDetailUrl, options);
 
   }
 
-  deleteCandidature(candidatureId) {
-    const headers = new Headers();
-    headers.append('candidatureId', candidatureId);
-    const options = new RequestOptions();
-    options.headers = headers;
-    return this.http.delete(this._candidatureDetailUrl);
+  deleteCandidature(id) {
+    const url = this._candidatureUrl + '/' + id;
+    return this.http.delete<any>(url);
   }
-
 }
-

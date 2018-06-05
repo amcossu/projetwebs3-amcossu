@@ -14,8 +14,8 @@
               <label for="">Nouvelle mot de passe</label>
               <input type="password" [(ngModel)]="updateUserData.password" name="password" class="form-control rounded-0">
             </div>
-            <button type="button" (click)="updateUser(user._id)" class="btn btn-success float-right">Modifier</button>
-            <button type="button" (click)="deleteUser(user._id)" class="btn btn-danger float-right">Supprimer compte</button>
+            <button type="button" (click)="updateUser()" class="btn btn-dark">Modifier</button>
+            <button type="button" (click)="deleteUser()" class="btn btn-dark btn_delete">Supprimer</button>
         </form>
 
       </div>

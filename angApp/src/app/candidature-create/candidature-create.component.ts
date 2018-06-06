@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CandidatureCreateComponent implements OnInit {
 
+  // object with candidature data
   candidature = {};
 
   constructor(private _candidatureService: CandidatureService, private _router: Router) { }
@@ -17,7 +18,7 @@ export class CandidatureCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  // register object and navigate to candidatures page
   saveJob() {
     this._candidatureService.registerCandidatures(this.candidature)
     .subscribe(

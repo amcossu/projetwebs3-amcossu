@@ -11,14 +11,16 @@ import { CandidatureService } from '../../../services/candidature.service';
 
 export class CandidatureComponent implements OnInit {
 
+  // array with all candidatures registered by an user
   candidatures = [];
+
   constructor(private _candidatureService: CandidatureService) { }
 
+  // use the candidature service to get all the candidatures and return in json
   ngOnInit() {
     this._candidatureService.getCandidatures()
     .subscribe(
       res => {this.candidatures = res.json();
-       console.log(this.candidatures);
       },
       err => console.log(err)
     );

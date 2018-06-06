@@ -18,11 +18,13 @@ export class CandidatureService {
   constructor(private http: HttpClient, private _router: Router, private _authService: AuthService,
               private _http: Http ) { }
 
+  /* Register candidature */
   registerCandidatures(candidature) {
-    candidature.userId = this._authService.getToken();
+    candidature.userId = this._authService.getToken(); 
     return this.http.post<any>(this._candidatureUrl, candidature);
   }
 
+  /* List all candidatures of a user */
   getCandidatures() {
     const userId = this._authService.getToken();
     const headers = new Headers();
@@ -34,12 +36,7 @@ export class CandidatureService {
 
   }
 
-
-  updateCandidature(id, candidature) {
-    const url = this._candidatureUrl + id;
-    return this.http.put<any>(url, candidature);
-  }
-
+  /* Show a candidature */
   getCandidatureDetail(candidatureId) {
     const headers = new Headers();
     headers.append('candidatureId', candidatureId);
@@ -47,6 +44,11 @@ export class CandidatureService {
     options.headers = headers;
     return this._http.get(this._candidatureDetailUrl, options);
 
+  }
+
+  updateCandidature(id, candidature) {
+    const url = this._candidatureUrl + id;
+    return this.http.put<any>(url, candidature);
   }
 
   deleteCandidature(id) {

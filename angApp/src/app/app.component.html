@@ -1,0 +1,25 @@
+<nav class="nav navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#">GestCan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/candidatures' *ngIf="_authService.loggedIn()" routerLinkActive="active">Mes candidatures</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+        <a class="nav-link"  *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">S'identifier</a>
+        <a class="nav-link"  *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">S'inscrire</a>
+        <a class="nav-link"  *ngIf="_authService.loggedIn()" routerLink="/candidature-create" routerLinkActive="active">Ajouter une candidature</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Déconnexion</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" routerLink="/profile" routerLinkActive="active" >Profil</a>
+    </ul>
+  </div>
+</nav>    
+
+<div class="container text-center">
+      <router-outlet></router-outlet>     
+</div>

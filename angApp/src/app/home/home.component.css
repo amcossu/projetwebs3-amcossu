@@ -1,0 +1,9 @@
+#main_home{
+    padding: 0%;
+}
+
+@media (max-width: 400px) {
+    h3 {
+        font-size: 20px;
+    }
+}
